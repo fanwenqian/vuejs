@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn><i>哈哈哈</i></cpn>
+  <cpn><b>呵呵呵</b></cpn>
+</div>
+
+<!--1.插槽的基本使用<slot></slot>-->
+<!--2.插槽的默认值<slot>默认值</slot>-->
+<!--3.如果有多个元素同时放入插槽进行替换时，一起作为替换元素-->
+<template id="cpn">
+  <div>
+    <span>我是组件</span><br>
+    <span>我是组件，哈哈哈哈</span>
+    <slot><button>按钮</button></slot>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      message: '你好，范文谦！'
+    },
+    components: {
+      cpn: {
+        template: '#cpn'
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--checkbox单选框-->
+  <!--<label for="agree">-->
+  <!--<input type="checkbox" id="agree" v-model="isAgree">同意协议-->
+  <!--</label><br>-->
+  <!--<button :disabled="!isAgree">下一步</button>-->
+
+  <!--checkbox多选框-->
+  <label for="hobby1">
+    <input id="hobby1" type="checkbox" value="篮球" v-model="hobbys">篮球
+  </label>
+  <label for="hobby2">
+    <input id="hobby2" type="checkbox" value="足球" v-model="hobbys">足球
+  </label>
+  <label for="hobby3">
+    <input id="hobby3" type="checkbox" value="乒乓球" v-model="hobbys">乒乓球
+  </label>
+  <label for="hobby4">
+    <input id="hobby4" type="checkbox" value="羽毛球" v-model="hobbys">羽毛球
+  </label>
+  <ul>
+    <li v-for="item in hobbys">{{item}}
+  </ul>
+
+  <label v-for="item in originHobbys">
+    <input type="checkbox" :value="item"/>{{item}}
+  </label>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      message: '你好，范文谦！',
+      isAgree: false,
+      hobbys: [],
+      originHobbys:['篮球','足球','乒乓球','羽毛球','搭积木','电子游戏'],
+    }
+  })
+</script>
+</body>
+</html>

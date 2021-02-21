@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <ccpn></ccpn>
+  </div>
+</template>
+
+<template id="ccpn">
+  <div>
+    我是子子组件
+    <button @click="btnClick">按钮</button>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      message: '你好，范文谦！'
+    },
+    components: {
+      cpn: {
+        template: '#cpn',
+        data(){
+          return{
+            name:'cpn的name'
+          }
+        },
+        components: {
+          ccpn:{
+            template: '#ccpn',
+            methods: {
+              btnClick() {
+                //由于组件存在多级的父子关系，而如果我们这么做的话，
+                //会使父子组件之间耦合度大大提高，显然这是一个不好的做法，
+                //所以在日常的开发中$parent使用的很少
+                // console.log(this.$parent);
+                // console.log(this.$parent.name);
+
+                //使用$root可以直接访问根组件，也就是vue实例
+                console.log(this.$root);
+                console.log(this.$root.message);
+              }
+            },
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <label for="male"></label>
+  <input id="male" type="radio" v-model="sex" value="男">男
+  <label for="female"></label>
+  <input id="female" type="radio" v-model="sex" value="女">女
+  <h1>您选择的性别是：{{sex}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      message: '你好，范文谦！',
+      sex:''
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="item in message">{{item}}</li>
+  </ul>
+  <button @click="btnClick()">按钮1</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      message: ['a', 'b', 'c', 'd']
+    },
+    methods: {
+      btnClick(){
+        //1,push方法
+        //this.message.push('aaa');
+
+        //*******不是响应式的！！！！  可以使用splice来代替此种写法
+        //2.通过索引值修改数组中的元素
+        //this.message[0] = 'bbb';
+        //或者使用set
+        Vue.set(this.message,0,'bbbbbb');
+i
+
+        //3.pop()删除数组最末尾的一个元素
+//        this.message.pop();
+
+        //shift()删除数组最开始的一个元素
+//        this.message.shift();
+
+        //unshift在数组开始的位置添加一个元素
+//        this.message.unshift('aaa')
+
+        //splice(1,0,'bbb')    可以删除/插入/替换元素
+        // this.message.splice(0,0,'cv');  //在0索引前加'cv'
+//         this.message.splice(0,1,'');    //删除0索引的值
+//        this.message.splice('1',2,'dd','ee') //先删除1，2两个元素，然后在此位置添加两个元素
+
+//         this.message.sort();  //排序
+
+//         this.message.reverse();  //数组反转
+      }
+    }
+  })
+</script>
+</body>
+</html>

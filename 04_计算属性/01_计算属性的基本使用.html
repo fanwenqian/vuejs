@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app"><span>{{fullName}}</span></div>
+
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      firstName: '文谦',
+      lastName:'范'
+    },
+    //计算属性()
+    computed:{
+      fullName:function () {
+         return this.lastName + ' ' + this.firstName;
+      }
+    }
+  })
+</script>
+</body>
+</html>

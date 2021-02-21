@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+   <!--key的作用是为了高效更新虚拟dom-->
+   <div id="app">
+     <ul>
+       <li v-for="item in message" :key="item">{{item}}
+       </li>
+     </ul>
+   </div>
+
+   <script src="../js/vue.js"></script>
+   <script>
+     //let(变量)/const(常量)
+     const app = new Vue({
+       el: '#app',  //用于将vue对象实例挂载到要管理的元素
+       data: {      //定义数据
+         message: ['A','B','C','D','E']
+       }
+     })
+   </script>
+</body>
+</html>

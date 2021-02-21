@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--在遍历对象的过程中，如果只是一个值，获取到的是value-->
+  <ul>
+    <li v-for="item in message">{{item}}</li>
+  </ul>
+
+  <!--如果需要获取key-->
+  <ul>
+    <li v-for="(value,key) in message">{{key}}--{{value}}</li>
+  </ul>
+
+  <!--甚至可以获取index-->
+  <ul>
+    <li v-for="(value,key,index) in message">{{index + 1 }}--{{key}}--{{value}}</li>
+  </ul>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      message: {
+        name: 'fan',
+        age: '25',
+        sex: 'male'
+      }
+    }
+  })
+</script>
+</body>
+</html>

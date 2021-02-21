@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn ref="aaa"></cpn>
+  <cpn></cpn>
+  <button @click="btnClick">按钮</button>
+</div>
+
+<template id="cpn">
+  <div>
+    我是子组件
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      message: '你好，范文谦！'
+    },
+    methods:{
+      btnClick(){
+        // 1.$children
+        //由于时使用下标，而且实际开发中下标很容易发生改变，所以不推荐此种方式
+        // console.log(this.$children);
+        // this.$children[0].showMsg();
+
+        //2.$refs  ==>对象类型，默认为空
+        console.log(this.$refs);
+        this.$refs.aaa.showMsg()
+      }
+    },
+    components:{
+      cpn:{
+        template:'#cpn',
+        methods:{
+          showMsg(){
+            console.log('msg');
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

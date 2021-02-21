@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{
+      color: red;
+    }
+    .title{
+      font-size: x-large;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <span class="title" :class="{'active':active}">{{message}}</span>
+  <span class="title" :class="getClass()">{{message}}</span>
+  <button @click="changeClass()">点我切换</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      message: '你好，范文谦！',
+      active: true
+    },
+    methods:{
+      changeClass:function () {
+        this.active = !this.active;
+      },
+      getClass:function () {
+        return {'active':this.active}
+      }
+    }
+  })
+</script>
+</body>
+</html>

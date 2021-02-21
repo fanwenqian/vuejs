@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(item,index) in movies"
+        :class="{active:index === currentIndex}"
+        @click="changeTab(index)">{{index}}{{item}}
+    </li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      movies: ['火影忍者', '海贼王', '死神', '妖精的尾巴'],
+      currentIndex: 0,
+    },
+    methods:{
+      changeTab(data){
+         this.currentIndex = data;
+      }
+    }
+  })
+</script>
+</body>
+</html>

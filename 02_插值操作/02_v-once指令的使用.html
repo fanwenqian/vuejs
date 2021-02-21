@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{message}}</h1>
+  <!--v-once修饰的只会加载一次-->
+  <h1 v-once>{{message}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    //let(变量)/const(常量)
+    const app = new Vue({
+        el:'#app',  //用于将vue对象实例挂载到要管理的元素
+        data:{      //定义数据
+            message:'你好，范文谦！'
+        }
+    })
+</script>
+</body>
+</html>

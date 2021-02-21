@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .color{
+      color:red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <!--需求点击哪一项，则哪一项变成红色-->
+  <ul>
+    <li v-for="(item,index) in movies" :class="[active == index? 'color':'']" @click="getClass(index)">{{index}}-{{item}}</li>
+  </ul>
+  <script src="../js/vue.js"></script>
+  <script>
+      //let(变量)/const(常量)
+      const app = new Vue({
+          el:'#app',  //用于将vue对象实例挂载到要管理的元素
+          data:{      //定义数据
+              movies:['海王','海贼王','火影忍者'],
+              active:null
+          },
+          methods:{
+              getClass:function (index) {
+                  this.active = index;
+              }
+          }
+      })
+  </script>
+</div>
+</body>
+</html>

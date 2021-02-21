@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+   <div @click="divClick()">
+     <!--可以使用stop修饰符来阻止事件冒泡-->
+     <button @click.stop="btnClick()">按钮</button>
+   </div>
+
+
+  <!--可以使用prevent修饰符来阻止默认的表单提交-->
+  <form action="baidu">
+    <input type="submit" @click.prevent="submitClick()" value="提交">
+  </form>
+
+  <!--监听某一个键盘按键回弹-->
+  <button @keyup.enter="keyUp()">按钮</button>
+
+  <!--once修饰符的使用-->
+  <button @click.once="btnClick()">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      message: '你好，范文谦！'
+    },
+    methods:{
+      btnClick(){
+        console.log('btnClick');
+      },
+      divClick(){
+        console.log('divClick');
+      },
+      submitClick(){
+        console.log('submitClick');
+      },
+      keyUp(){
+        console.log('keyUp');
+      }
+    }
+  })
+</script>
+</body>
+</html>

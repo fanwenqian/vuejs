@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>{{message}}</h1>
+    <h1 v-cloak>{{message}}</h1>
+  </div>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+      //延迟1000毫秒执行
+      setTimeout(function (){
+        //let(变量)/const(常量)
+        const app = new Vue({
+          el:'#app',  //用于将vue对象实例挂载到要管理的元素
+          data:{      //定义数据
+            message:'你好，范文谦！'
+          }
+        })
+      },1000)
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+  <!--当v-if为false时，包含此v-if的元素不会在dom中存在-->
+  <span v-if="isShow">aaa</span>
+
+  <!--而v-show为false时，只是给包含v-show的元素加上了一个行内样式display:none-->
+  <span v-show="isShow">bbb</span>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      isShow: true
+    }
+  })
+</script>
+</body>
+</html>

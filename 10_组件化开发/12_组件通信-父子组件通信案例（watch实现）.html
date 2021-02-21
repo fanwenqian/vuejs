@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn :number1="num1" :number2="num2" @num1Change="num1change" @num2Change="num2change"></cpn>
+</div>
+
+
+<template id="cpn">
+  <div>
+    <h2>props:{{number1}}</h2>
+    <input type="text" v-model="dnumber1">
+    <h2>props:{{number2}}</h2>
+    <input type="text" v-model="dnumber2">
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+
+
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      num1: 1,
+      num2: 0,
+    },
+    components: {
+      cpn: {
+        template: '#cpn',
+        props: {
+          number1: Number,
+          number2: Number,
+        },
+        data() {
+          return {
+            dnumber1: this.number1,
+            dnumber2: this.number2,
+          }
+        },
+        watch:{
+          dnumber1(newValue){
+             this.dnumber2 = newValue * 100;
+             this.$emit('num1change',newValue)
+          },
+          dnumber2(newValue){
+            this.dnumber1 = newValue / 100;
+            this.$emit('num2change',newValue)
+          }
+        }
+      }
+    },
+    methods: {
+      num1change(data) {
+        // alert(typeof data)
+        this.num1 = parseInt(data);
+      },
+      num2change(data) {
+        this.num2 = parseInt(data);
+      },
+    }
+  })
+</script>
+</body>
+</html>

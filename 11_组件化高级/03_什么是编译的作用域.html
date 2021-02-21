@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="app">
+  <cpn v-if="isShow"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <span>我是组件</span><br>
+    <span>我是组件，哈哈哈哈</span>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  //let(变量)/const(常量)
+  const app = new Vue({
+    el: '#app',  //用于将vue对象实例挂载到要管理的元素
+    data: {      //定义数据
+      message:'',
+      isShow:true,
+    },
+    components: {
+      cpn: {
+        template: '#cpn',
+        data(){
+          return {
+            isShow: false,
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
